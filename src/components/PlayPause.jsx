@@ -1,22 +1,29 @@
 import { FaPlayCircle, FaPauseCircle } from 'react-icons/fa';
+import { usePlayer } from '../hooks/usePlayer';
+import { useGetGlobalTopSongsQuery } from '../redux/services/spotifyAPI';
 
 const PlayPause = ({
-  isPlaying,
-  activeSong,
   song,
-  handlePause,
-  handlePlay,
-}) => (
-  <div className="flex justify-center items-center h-full w-full">
-    {isPlaying && activeSong?.title === song.title ? (
-      <FaPauseCircle size={35} />
-    ) : (
-      <FaPlayCircle
-        className="  animate-slideupFaster text-gray-300"
-        size={45}
-      />
-    )}
-  </div>
-);
+  activeSong,
+  isPlaying,
+  handlePlayClick,
+  handlePauseClick,
+}) => {
+  // console.log(isPlaying, activeSong, song);
+
+  return (
+    <div className="flex justify-center items-center h-full w-full">
+      {isPlaying && activeSong?.id === song.id ? (
+        <FaPauseCircle size={35} />
+      ) : (
+        <FaPlayCircle
+          className="animate-fastfade text-gray-300"
+          size={45}
+          onClick={handlePlayClick}
+        />
+      )}
+    </div>
+  );
+};
 
 export default PlayPause;

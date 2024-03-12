@@ -1,13 +1,22 @@
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../redux/features/playerSlice';
 
-const SongCard = ({ song, isPlaying, activeSong, index }) => {
-  const handlePauseClick = () => {};
+import { usePlayer } from '../hooks/usePlayer';
 
-  const handlePlayClick = () => {};
+const SongCard = ({ song, data, index }) => {
+  const { pauseSong, playSong } = usePlayer();
+  const { activeSong, isPlaying } = useSelector((state) => state.player);
+
+  const handlePauseClick = () => {
+    pauseSong();
+  };
+
+  const handlePlayClick = () => {
+    playSong({ song, data, index });
+  };
 
   return (
     <div
@@ -25,11 +34,13 @@ const SongCard = ({ song, isPlaying, activeSong, index }) => {
             }`}
         >
           <PlayPause
-            isPlaying={isPlaying}
-            activeSong={activeSong}
             song={song}
-            handlePause={handlePauseClick}
+            activeSong={activeSong}
+            isPlaying={isPlaying}
+            data={data}
             handlePlayClick={handlePlayClick}
+            handlePauseClick={handlePauseClick}
+            index={index}
           />
         </div>
         <img
