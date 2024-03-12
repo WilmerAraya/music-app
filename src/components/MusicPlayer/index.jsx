@@ -41,7 +41,6 @@ const MusicPlayer = () => {
     dispatch(playPause(false));
 
     if (!shuffle) {
-      console.log(currentSongs.length);
       dispatch(nextSong((currentIndex + 1) % currentSongs.length));
     } else {
       dispatch(nextSong(Math.floor(Math.random() * currentSongs.length)));
