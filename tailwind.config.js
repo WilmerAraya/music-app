@@ -7,6 +7,9 @@ module.exports = {
         primary: '#ffffff',
         secundary: '#000000',
         black: '#191624',
+        sidebar: '#191624',
+        menuMobile: '#483d8b',
+        active: '#b701ab',
       },
       animation: {
         slideup: 'slideup 1s ease-in-out',
