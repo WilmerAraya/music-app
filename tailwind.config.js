@@ -4,15 +4,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primary: '#ffffff',
+        secundary: '#000000',
         black: '#191624',
       },
       animation: {
         slideup: 'slideup 1s ease-in-out',
+        slideupFaster: 'slideup 0.2s ease-in-out',
         slidedown: 'slidedown 1s ease-in-out',
         slideleft: 'slideleft 1s ease-in-out',
         slideright: 'slideright 1s ease-in-out',
         wave: 'wave 1.2s linear infinite',
         slowfade: 'slowfade 2.2s ease-in-out',
+        fastfade: 'slowfade 0.2s ease-in-out',
       },
       keyframes: {
         slowfade: {
