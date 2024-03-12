@@ -14,12 +14,15 @@ const SongCard = ({ song, isPlaying, activeSong, index }) => {
       className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80
      backdrop-blur-sm animate-slideup rounded-lg cursor-pointer"
     >
-      <div className="relative w-full h-56 group">
+      <div className="relative w-full h-full group">
         <div
-          className={`absolute inset-0 justify-center items-center
-         bg-black bg-opacity-50 group-hover:flex ${
-           activeSong?.title === song ? 'flex bg-black bg-opacity-70' : 'hidden'
-         }`}
+          className={`absolute inset-0 flex justify-center items-center 
+          animate-fastfade bg-black/50
+            group-hover:flex ${
+              activeSong?.title === song
+                ? 'flex bg-black bg-opacity-70'
+                : 'hidden'
+            }`}
         >
           <PlayPause
             isPlaying={isPlaying}
@@ -29,7 +32,11 @@ const SongCard = ({ song, isPlaying, activeSong, index }) => {
             handlePlayClick={handlePlayClick}
           />
         </div>
-        <img alt="song_img" src={song.album.images[0]?.url} />
+        <img
+          className="rounded-lg"
+          alt="song_img"
+          src={song.album.images[1]?.url}
+        />
       </div>
       <div className="mt-4 flex flex-col">
         <p className="font-semibold text-lg text-primary capitalize truncate">
