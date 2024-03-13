@@ -27,7 +27,7 @@ const SongCard = ({ song, data, index }) => {
           className={`absolute inset-0 flex justify-center items-center 
           animate-fastfade bg-black/50
             group-hover:flex ${
-              activeSong?.title === song
+              activeSong?.name === song.name
                 ? 'flex bg-black bg-opacity-70'
                 : 'hidden'
             }`}
